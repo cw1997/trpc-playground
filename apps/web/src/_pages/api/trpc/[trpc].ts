@@ -4,7 +4,7 @@
  */
 import { tracked } from '@trpc/server';
 import * as trpcNext from '@trpc/server/adapters/next';
-import { publicProcedure, router } from '~/server/trpc';
+import { publicProcedure, router } from '@/server/trpc';
 import { z } from 'zod';
 
 let subscriptionIdx = 0;
