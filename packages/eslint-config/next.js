@@ -6,6 +6,7 @@ import pluginReact from "eslint-plugin-react";
 import globals from "globals";
 import pluginNext from "@next/eslint-plugin-next";
 import { config as baseConfig } from "./base.js";
+import reactCompiler from 'eslint-plugin-react-compiler'
 
 /**
  * A custom ESLint configuration for libraries that use Next.js.
@@ -25,6 +26,12 @@ export const nextJsConfig = [
         ...globals.serviceworker,
       },
     },
+    rules: {
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/no-unescaped-entities": "off",
+    },
   },
   {
     plugins: {
@@ -33,6 +40,7 @@ export const nextJsConfig = [
     rules: {
       ...pluginNext.configs.recommended.rules,
       ...pluginNext.configs["core-web-vitals"].rules,
+      "@next/next/no-img-element": "off",
     },
   },
   {
@@ -43,7 +51,15 @@ export const nextJsConfig = [
     rules: {
       ...pluginReactHooks.configs.recommended.rules,
       // React scope no longer necessary with new JSX transform.
-      "react/react-in-jsx-scope": "off",
+      "react-hooks/exhaustive-deps": "off",
+    },
+  },
+  {
+    plugins: {
+      'react-compiler': reactCompiler,
+    },
+    rules: {
+      'react-compiler/react-compiler': 'error',
     },
   },
 ];

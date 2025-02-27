@@ -29,4 +29,13 @@ export const config = [
   {
     ignores: ["dist/**"],
   },
+  {
+    rules: {
+      "no-console": "warn",
+      // 强制使用双引号
+      'quotes': ['error', 'double'],
+      // 对象和数组末尾保留逗号
+      'comma-dangle': ['error', 'always'],
+    },
+  }
 ];

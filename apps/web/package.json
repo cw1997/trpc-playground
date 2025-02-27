@@ -1,28 +1,45 @@
 {
-  "name": "web",
+  "name": "@trpc-playground/nextjs",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev --turbopack --port 3000",
     "build": "next build",
+    "clean": "git clean -xdf .cache .next .turbo node_modules",
+    "dev": "next dev",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
     "start": "next start",
-    "lint": "next lint --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "with-env": "dotenv -e ../../.env --",
+    "upgrade": "pnpx npm-check-updates -i"
   },
   "dependencies": {
-    "@repo/ui": "workspace:*",
-    "next": "^15.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@tanstack/react-query": "^5.66.9",
+    "@tanstack/react-query-devtools": "^5.66.9",
+    "@trpc/client": "11.0.0-rc.814",
+    "@trpc/next": "11.0.0-rc.814",
+    "@trpc/react-query": "11.0.0-rc.814",
+    "@trpc/server": "11.0.0-rc.814",
+    "@trpc/tanstack-react-query": "11.0.0-rc.814",
+    "geist": "^1.3.1",
+    "jiti": "^2.4.2",
+    "next": "^15.2.0",
+    "react": "^19",
+    "react-dom": "^19",
+    "superjson": "2.2.2",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@trpc-playground/api": "workspace:*",
+    "@trpc-playground/eslint-config": "workspace:*",
     "@types/node": "^22",
-    "@types/react": "19.0.8",
-    "@types/react-dom": "19.0.3",
-    "eslint": "^9.21.0",
-    "typescript": "5.7.3"
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "dotenv-cli": "^8",
+    "eslint": "^9",
+    "prettier": "^3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
